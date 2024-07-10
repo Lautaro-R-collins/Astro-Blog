@@ -9,7 +9,7 @@ import { disqusConfig } from '@/data/disqus.config'
 			s = d.createElement('script')
 		s.src = 'https://' + shortname + '.disqus.com/embed.js'
 		s.setAttribute('data-timestamp', String(new Date()))
-		s.setAttribute('data-theme', localStorage.getItem('theme') ?? 'light') // Pass the string value directly
+		s.setAttribute('data-theme', localStorage.getItem('theme') ?? 'dark') // Pass the string value directly
 		;(d.head || d.body).appendChild(s)
 
 		// document.addEventListener('theme-change', (e) => {

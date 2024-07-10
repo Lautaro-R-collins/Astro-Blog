@@ -6,25 +6,32 @@ import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
 import TagIcon from './icons/TagIcon.astro'
 import ToggleTheme from './ToggleTheme.astro'
+import LinkedinHeader from './icons/LinkedinHeader.astro'
 
 // ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
+    {
+		name: 'Linkedin',
+		url: 'https://www.linkedin.com/in/lautaro-rodr%C3%ADguez-collins-40505624a/',
+		icon: LinkedinHeader
+	},
+
 	{
 		name: 'Github',
-		url: 'https://github.com/danielcgilibert/blog-template',
+		url: 'https://github.com/Lautaro-R-collins',
 		icon: GithubIcon
 	},
 
 	{
 		name: 'Twitter',
-		url: 'https://github.com/danielcgilibert/blog-template',
+		url: 'https://www.twitter.com/lautarodevelops/',
 		icon: TwitterIcon
 	}
 ]
 ---
 
-<header class='relative flex items-center h-12 font-semibold'>
-	<a class='text-lg mr-auto' href='/'>Home</a>
+<header class='relative flex items-center h-12 font-semibold pb-8 bg'>
+	<a class='text-xl mr-auto hover:text-blue-500' href='/'>Inicio</a>
 
 	<div
 		id='astro-header-drawer'
@@ -36,7 +43,7 @@ const SOCIALNETWORKS = [
 			<div
 				class='flex flex-col gap-4 md:flex-row md:border-r-2 border-black pr-4 dark:border-white'
 			>
-				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base'>
+				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base hover:text-blue-500'>
 					<TagIcon /> Tags
 				</HeaderLink>
 			</div>
@@ -60,7 +67,7 @@ const SOCIALNETWORKS = [
 		<ToggleTheme />
 		<button id='astro-header-drawer-button' type='button' class='md:ml-6 md:hidden'>
 			<MenuIcon />
-			<span class='sr-only'>Show Menu</span>
+			<span class='sr-only'>Ver Menu</span>
 		</button>
 	</div>
 </header>

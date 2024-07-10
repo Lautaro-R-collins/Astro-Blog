@@ -8,12 +8,13 @@ interface SiteConfig {
 	paginationSize: number
 }
 
+
 export const siteConfig: SiteConfig = {
-	author: 'DanielCG', // Site author
-	title: 'Astro Theme OpenBlog', // Site title.
-	description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', // Description to display in the meta tags
-	lang: 'en-GB',
-	ogLocale: 'en_GB',
-	shareMessage: 'Share this post', // Message to share a post on social media
-	paginationSize: 6 // Number of posts per page
-}
+  author: 'LautaroDev',
+  title: 'Lautaro Develops',
+  description: 'Mi blog personal sobre desarrollo web y tecnología',
+  lang: 'es-AR',  
+  ogLocale: 'es_AR',
+  shareMessage: '¡Comparte esta publicación interesante con tus amigos!',
+  paginationSize: 10,  
+};

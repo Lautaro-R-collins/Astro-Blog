@@ -5,6 +5,7 @@ import BaseLayout from '@/layouts/BaseLayout'
 import Tag from '@/components/Tag'
 import type { MarkdownHeading } from 'astro'
 import { Image } from 'astro:assets'
+import ArrowLeft from '@/components/icons/ArrowLeft'
 
 type Props = {
 	id: CollectionEntry<'blog'>['id']
@@ -30,7 +31,7 @@ const articleDate = pubDate.toISOString()
 			<div class='flex flex-col gap-2'>
 				<div class='flex items-center justify-center gap-x-1'>
 					<p class='text-center text-sm text-opacity-50'>
-						Published <FormattedDate date={pubDate} />
+						Publicado <FormattedDate date={pubDate} />
 					</p>
 					<p class='text-center text-sm text-opacity-50 font-bold'>
 						- {readTime}
@@ -46,28 +47,34 @@ const articleDate = pubDate.toISOString()
 			</div>
 		</header>
 
-		<>
-			{
-				heroImage && (
-					<Image
-						src={heroImage}
-						width={1000}
-						height={500}
-						quality={100}
-						format='jpg'
-						loading='eager'
-						class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover'
-						alt={`img of ${title}`}
-					/>
-				)
-			}
-		</>
+		{heroImage && (
+			<Image
+				src={heroImage}
+				width={1000}
+				height={500}
+				quality={100}
+				format='jpg'
+				loading='eager'
+				class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover'
+				alt={`img of ${title}`}
+			/>
+		)}
 
 		<hr />
 
 		<div>
 			<slot />
 		</div>
+		
+
+		<div class='flex justify-start my-4'>
+			<a
+				href="/"
+			>
+			<ArrowLeft width='50' height='50' /> 
+			</a>
+		</div>
+
 	</article>
 </BaseLayout>
 
