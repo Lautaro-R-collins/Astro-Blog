@@ -12,9 +12,9 @@ interface SiteConfig {
 export const siteConfig: SiteConfig = {
   author: 'LautaroDev',
   title: 'Lautaro Develops',
-  description: 'Mi blog personal sobre desarrollo web y tecnología',
+  description: 'Mi blog',
   lang: 'es-AR',  
   ogLocale: 'es_AR',
-  shareMessage: '¡Comparte esta publicación interesante con tus amigos!',
+  shareMessage: '¡Comparte esta publicación!',
   paginationSize: 10,  
 };
