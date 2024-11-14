@@ -47,34 +47,32 @@ const articleDate = pubDate.toISOString()
 			</div>
 		</header>
 
-		{heroImage && (
-			<Image
-				src={heroImage}
-				width={1000}
-				height={500}
-				quality={100}
-				format='jpg'
-				loading='eager'
-				class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover'
-				alt={`img of ${title}`}
-			/>
-		)}
+		{
+			heroImage && (
+				<Image
+					src={heroImage}
+					width={1000}
+					height={500}
+					quality={100}
+					format='jpg'
+					loading='eager'
+					class='rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover'
+					alt={`img of ${title}`}
+				/>
+			)
+		}
 
 		<hr />
 
 		<div>
 			<slot />
 		</div>
-		
 
 		<div class='flex justify-start my-4'>
-			<a
-				href="/"
-			>
-			<ArrowLeft width='50' height='50' /> 
+			<a href='/'>
+				<ArrowLeft width='50' height='50' />
 			</a>
 		</div>
-
 	</article>
 </BaseLayout>
 
@@ -90,8 +88,8 @@ const articleDate = pubDate.toISOString()
 				if (entry.isIntersecting) {
 					index?.classList.remove('bg-slate-200', 'dark:bg-slate-800') // remove bg
 					index?.classList.add(
-						'bg-indigo-600',
-						'dark:bg-indigo-700',
+						'bg-cyan-600',
+						'dark:bg-cyan-700',
 						'text-white',
 						'font-bold',
 						'transition-colors',
@@ -100,8 +98,8 @@ const articleDate = pubDate.toISOString()
 				} else {
 					index?.classList.add('bg-slate-200', 'dark:bg-slate-800') // add bg
 					index?.classList.remove(
-						'bg-indigo-600',
-						'dark:bg-indigo-700',
+						'bg-cyan-600',
+						'dark:bg-cyan-700',
 						'text-white',
 						'font-bold',
 						'transition-colors',
