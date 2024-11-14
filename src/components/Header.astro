@@ -1,37 +1,33 @@
 ---
 import HeaderLink from '@/components/HeaderLink'
-import TwitterIcon from '@/components/icons/TwitterIcon'
-import GithubIcon from '@/components/icons/GithubIcon'
 import MenuIcon from './icons/MenuIcon.astro'
 import Search from '@/components/Search'
-import TagIcon from './icons/TagIcon.astro'
 import ToggleTheme from './ToggleTheme.astro'
-import LinkedinHeader from './icons/LinkedinHeader.astro'
+import { FaTwitter, FaGithub, FaLinkedin, FaTags } from 'react-icons/fa'
 
-// ADD YOUR SOCIAL NETWORKS HERE
 const SOCIALNETWORKS = [
-    {
+	{
 		name: 'Linkedin',
 		url: 'https://www.linkedin.com/in/lautaro-rodr%C3%ADguez-collins-40505624a/',
-		icon: LinkedinHeader
+		icon: FaLinkedin
 	},
 
 	{
 		name: 'Github',
 		url: 'https://github.com/Lautaro-R-collins',
-		icon: GithubIcon
+		icon: FaGithub
 	},
 
 	{
 		name: 'Twitter',
 		url: 'https://www.twitter.com/lautarodevelops/',
-		icon: TwitterIcon
+		icon: FaTwitter
 	}
 ]
 ---
 
-<header class='relative flex items-center h-12 font-semibold pb-8 bg'>
-	<a class='text-xl mr-auto hover:text-blue-500' href='/'>Inicio</a>
+<header class='relative flex items-center h-12 font-semibold pb-8 mt-5'>
+	<a class='text-2xl font-bold mr-auto hover:text-cyan-600' href='/'> &lt;LRC /&gt;</a>
 
 	<div
 		id='astro-header-drawer'
@@ -43,15 +39,23 @@ const SOCIALNETWORKS = [
 			<div
 				class='flex flex-col gap-4 md:flex-row md:border-r-2 border-black pr-4 dark:border-white'
 			>
-				<HeaderLink href='/tags' class='flex items-center gap-1 text-2xl md:text-base hover:text-blue-500'>
-					<TagIcon /> Tags
+				<HeaderLink
+					href='/tags'
+					class='flex items-center gap-1 text-2xl md:text-base hover:text-cyan-600'
+				>
+					<FaTags className='text-[1.3em]' /> Tags
 				</HeaderLink>
 			</div>
 
-			<div class='flex justify-center items-center md:justify-end gap-3 md:p-0'>
+			<div class='flex justify-center text-xl items-center md:justify-end gap-5 md:p-0'>
 				{
 					SOCIALNETWORKS.map((network) => (
-						<HeaderLink class='' href={network.url} target='_blank' aria-label={network.name}>
+						<HeaderLink
+							class='hover:text-cyan-600'
+							href={network.url}
+							target='_blank'
+							aria-label={network.name}
+						>
 							<span>{<network.icon />} </span>
 						</HeaderLink>
 					))
@@ -71,6 +75,7 @@ const SOCIALNETWORKS = [
 		</button>
 	</div>
 </header>
+
 <script>
 	document.addEventListener('click', (event) => {
 		const menu = document.getElementById('astro-header-drawer')

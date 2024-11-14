@@ -1,7 +1,48 @@
 ---
 const today = new Date()
+import { FaTwitter, FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa'
 ---
 
-<footer class='flex justify-center items-center w-full px-16 h-28 border-t-2'>
-	&copy; {today.getFullYear()} Lautaro Rodriguez Collins
+<footer>
+	<hr />
+	<div class='container mx-auto pt-8 pb-6 flex justify-between items-center'>
+		<p class='text-sm'>
+			&copy; {new Date().getFullYear()} Lautaro Rodriguez Collins. Todos los derechos reservados.
+		</p>
+
+		<div class='flex gap-6'>
+			<a
+				href='https://portfolio-lautaro.onrender.com/'
+				target='_blank'
+				rel='noopener noreferrer'
+				class='text-3xl hover:text-cyan-600'
+			>
+				<FaGlobe />
+			</a>
+			<a
+				href='https://twitter.com/lautarodevelops'
+				target='_blank'
+				rel='noopener noreferrer'
+				class='text-3xl hover:text-cyan-600'
+			>
+				<FaTwitter />
+			</a>
+			<a
+				href='https://github.com/Lautaro-R-collins'
+				target='_blank'
+				rel='noopener noreferrer'
+				class='text-3xl hover:text-cyan-600'
+			>
+				<FaGithub />
+			</a>
+			<a
+				href='https://www.linkedin.com/in/lautaro-rodr%C3%ADguez-collins-40505624a/'
+				target='_blank'
+				rel='noopener noreferrer'
+				class='text-3xl hover:text-cyan-600'
+			>
+				<FaLinkedin />
+			</a>
+		</div>
+	</div>
 </footer>

@@ -1,12 +1,16 @@
 ---
-
 import '@pagefind/default-ui/css/ui.css'
-import SearchIcon from '@/components/icons/SearchIcon'
+import { IoSearchOutline } from 'react-icons/io5'
+import { HiX } from 'react-icons/hi'
 ---
 
 <site-search id='search' class='ms-auto'>
-	<button data-open-modal disabled class='flex items-center justify-center rounded-md gap-1'>
-		<SearchIcon />
+	<button
+		data-open-modal
+		disabled
+		class='flex text-2xl items-center justify-center rounded-md gap-1'
+	>
+		<IoSearchOutline />
 		<!-- <span class='md:hidden text-2xl'> Search</span> -->
 	</button>
 	<dialog
@@ -16,9 +20,9 @@ import SearchIcon from '@/components/icons/SearchIcon'
 		<div class='dialog-frame flex flex-col gap-4 p-6 pt-12 sm:pt-6'>
 			<button
 				data-close-modal
-				class='ms-auto cursor-pointer rounded-full bg-black text-white px-4 py-2 dark:bg-white dark:text-black'
-				>Cerrar</button
-			>
+				class='ms-auto cursor-pointer rounded-full bg-black text-white p-2 dark:bg-white dark:text-black dark:hover:bg-red-500 hover:bg-red-500'
+				><HiX className='text-2xl' />
+			</button>
 			{
 				import.meta.env.DEV ? (
 					<div class='mx-auto text-center dark:text-white'>
