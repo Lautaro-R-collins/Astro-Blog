@@ -1,16 +1,18 @@
 ---
 const today = new Date()
-import { FaTwitter, FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
+import { IoMdMail } from 'react-icons/io'
 ---
 
-<footer>
+<footer class='pt-8 pb-6'>
 	<hr />
-	<div class='container mx-auto pt-8 pb-6 flex justify-between items-center'>
-		<p class='text-sm'>
-			&copy; {new Date().getFullYear()} Lautaro Rodriguez Collins. Todos los derechos reservados.
+	<div class='container mx-auto flex justify-between items-center flex-col sm:flex-row mt-5'>
+		<p class='text-sm p-5'>
+			&copy; {new Date().getFullYear()} Lautaro Rodriguez Collins - lautarodevelops@gmail.com
 		</p>
 
-		<div class='flex gap-6'>
+		<div class='flex gap-6 justify-center sm:justify-start'>
 			<a
 				href='https://portfolio-lautaro.onrender.com/'
 				target='_blank'
@@ -25,7 +27,7 @@ import { FaTwitter, FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa'
 				rel='noopener noreferrer'
 				class='text-3xl hover:text-cyan-600'
 			>
-				<FaTwitter />
+				<FaXTwitter />
 			</a>
 			<a
 				href='https://github.com/Lautaro-R-collins'

@@ -1,0 +1,236 @@
+---
+heroImage: /src/assets/images/programación orientada a objetos - 2.jpg
+category: Programación
+description: >-
+  En este artículo voy a abordar los conceptos clave para entender y aplicar la
+  POO (Programación Orientada a Objetos) en JavaScript. Aunque inicialmente lo
+  escribí como una suerte de apunte personal al que pueda recurrir cada tanto,
+  si por esas casualidades llegaste hasta aquí y estás aprendiendo a programar,
+  quizás te resulte útil para introducirte al mundo de los paradigmas de
+  programación y la POO.
+pubDate: 2024-12-10T03:00:00.000Z
+tags:
+  - desarrollo web
+  - JavaScript
+  - programación
+title: Programación Orientada a Objetos
+---
+
+## Introducción 
+
+En este artículo voy a abordar los conceptos clave para entender y aplicar la POO (Programación Orientada a Objetos) en JavaScript. Aunque inicialmente lo escribí como una suerte de apunte personal al que pueda recurrir cada tanto, si por esas casualidades llegaste hasta aquí y estás aprendiendo a programar, quizás te resulte útil para introducirte al mundo de los paradigmas de programación y la POO.
+
+## Objetos literales
+
+Antes de ver las clases y otros conceptos de la POO, repasaremos brevemente los objetos literales. Un objeto literal en pocas palabras es una estructura de datos con una colección de pares clave-valor, donde las claves representan las propiedades o atributos, y los valores pueden ser datos o funciones (métodos).
+
+```javascript
+const auto = {
+	color: 'rojo',
+	marca: 'Ford',
+	modelo: 'Mustang',
+	acelerar: function () {
+		console.log(`${this.marca} está acelerando`)
+	}
+}
+
+console.log(auto.color) // 'rojo'
+auto.acelerar() // 'Ford está acelerando'
+```
+
+A diferencia de las clases, los objetos literales no requieren un "molde previo". Sin embargo, cuando trabajamos con múltiples objetos que comparten características o comportamientos, las clases y la POO nos ayudan a organizar y reutilizar el código de manera más eficiente, y eso es lo que vamos a ver en este articulo.
+
+## ¿Qué es un paradigma de programación?
+
+Un paradigma de programación es un enfoque o modelo que define cómo se escribe y estructura un programa, siguiendo ciertos principios y reglas clave propios de ese paradigma. Podríamos decir que es una forma de pensar y trabajar al momento de desarrollar software.
+
+## Entonces, ¿qué es la Programación Orientada a Objetos?
+
+La POO es uno de los principales paradigmas para el desarrollo de software. Su enfoque se basa en el uso de objetos y clases para estructurar el código. Este paradigma busca abstraer conceptos del mundo real y organizar el código en torno a "objetos", que son entidades que combinan datos (propiedades) y comportamientos (métodos).
+
+Más adelante, voy a profundizar en las bases y características fundamentales de la POO (Encapsulamiento, Herencia, Polimorfismo y Abstracción). Por ahora, lo más importante es entender que el objetivo principal de la POO es abstraer conceptos del mundo real y representarlos como objetos dentro de nuestro programa.
+
+## Bases de la Programación Orientada a Objetos
+
+Antes de entrar en detalle con los conceptos más avanzados de la POO, es importante entender sus fundamentos. En este apartado vamos a explorar las piezas clave que componen este paradigma: las clases, los atributos, los métodos y los objetos.
+Estos elementos son la base de todo lo que hacemos cuando trabajamos con POO, y conocer cómo funcionan te permitirá estructurar mejor tu código y modelar situaciones del mundo real.
+
+### Clases
+
+Podemos pensar en una clase como un molde o plantilla que define cómo serán los objetos que creemos. En ella, especificamos qué datos (atributos) y comportamientos (métodos) tendrán los objetos.
+
+### Atributos
+
+Los atributos son las propiedades o características de un objeto. Por ejemplo, si estamos modelando un automóvil, atributos como el color, la marca o el modelo serían los datos que describen a cada automóvil.
+
+### Métodos
+
+Los métodos (que son basicamente funciones) son las acciones o comportamientos que un objeto puede realizar. Siguiendo con el ejemplo del automóvil, métodos como "acelerar", "frenar" o "tocar la bocina" serían los comportamientos que podemos asociar al auto.
+
+### Objetos
+
+Los objetos son instancias de una clase. Es decir, cuando usamos una clase para crear algo específico, obtenemos un objeto que es instancia de la clase padre. Por ejemplo, si tenemos la clase Automovil, un objeto podría ser un auto específico, como un "Ford Mustang rojo".
+
+Esta es la sintaxis basica para crear objetos usando la POO donde definimos una clase con sus atributos y sus metodos, a partir de esta clase podremos crear objetos que seran instancias de la misma:
+
+```javascript
+class Automovil {
+	constructor(color, marca, modelo) {
+		this.color = color // Atributo
+		this.marca = marca
+		this.modelo = modelo
+	}
+
+	acelerar() {
+		// Método
+		console.log(`${this.marca} está acelerando`)
+	}
+}
+
+const miAuto = new Automovil('rojo', 'Ford', 'Mustang') // Objeto
+miAuto.acelerar()
+```
+
+## Los pilares fundamentales de la POO
+
+Ahora que conocemos lo basico de la Programación Orientada a Objetos, es momento de explorar los conceptos clave que hacen de este paradigma una herramienta tan poderosa para estructurar y organizar código. Estos conceptos son los pilares fundamentales de la POO y constituyen los principios esenciales que guían su implementación: Encapsulamiento, Herencia, Polimorfismo y Abstracción.
+
+### Encapsulamiento
+
+El encapsulamiento es una practica que consiste en proteger los datos de un objeto, controlando su acceso y modificándolos únicamente a través de métodos específicos. Esto ayuda a mantener la integridad de los datos y a ocultar los detalles internos de un objeto, basicamente buscamos exponer solo lo necesario a través de métodos y ocultar detalles internos que no son relevantes para el exterior.
+
+> Nota: En JavaScript, las propiedades privadas se implementan utilizando el prefijo #.
+
+Ejemplo:
+
+```javascript
+class Persona {
+	#nombre // Propiedad privada
+	constructor(nombre) {
+		this.#nombre = nombre
+	}
+	getNombre() {
+		return this.#nombre // Acceso controlado
+	}
+	setNombre(nombre) {
+		this.#nombre = nombre
+	}
+}
+
+const persona = new Persona('Miguel')
+console.log(persona.getNombre()) // "Miguel"
+persona.setNombre('Lucas')
+console.log(persona.getNombre()) // "Lucas"
+```
+
+### Herencia
+
+La herencia permite que una clase (Hija o subclase) herede propiedades y métodos de otra clase (clase padre, o superclase). Esto fomenta la reutilización de código y facilita la creación de estructuras jerárquicas.
+
+Basicamente esto facilita la creación de sistemas jerárquicos y permite reutilizar lógica, reduciendo la duplicación de código.
+
+```javascript
+class Animal {
+	constructor(nombre) {
+		this.nombre = nombre
+	}
+	hacerSonido() {
+		console.log(`${this.nombre} hace un sonido.`)
+	}
+}
+
+class Perro extends Animal {
+	hacerSonido() {
+		console.log(`${this.nombre} ladra.`)
+	}
+}
+
+const perro = new Perro('Firulais')
+perro.hacerSonido() // "Firulais ladra."
+```
+
+### Polimorfismo
+
+El polimorfismo permite que una misma interfaz o método se comporte de diferentes maneras según el contexto. Esto es útil cuando se trabaja con herencia, ya que las clases hijas pueden redefinir los métodos de la clase padre.
+
+Esto simplifica el manejo de objetos de diferentes tipos que comparten una interfaz común, haciendo el código más flexible y extensible
+
+```javascript
+class Animal {
+	hacerSonido() {
+		console.log('Este animal hace un sonido.')
+	}
+}
+
+class Gato extends Animal {
+	hacerSonido() {
+		console.log('El gato maúlla.')
+	}
+}
+
+class Perro extends Animal {
+	hacerSonido() {
+		console.log('El perro ladra.')
+	}
+}
+
+const animales = [new Gato(), new Perro()]
+animales.forEach((animal) => animal.hacerSonido())
+// "El gato maúlla."
+// "El perro ladra."
+```
+
+### Abstracción
+
+La abstracción consiste en enfocarse en los aspectos esenciales de un objeto, ignorando los detalles innecesarios. Esto se logra definiendo clases y métodos que representan un modelo simplificado de la realidad.
+
+Permite trabajar con un modelo simplificado de un sistema complejo, mejorando la legibilidad y la gestión del código, es algo asi como el funcionamiento interno del motor de un auto, no necesitamos conocerlo para poder usarlo.
+
+```javascript
+class Forma {
+	calcularArea() {
+		throw new Error('Este método debe ser implementado por una subclase.')
+	}
+}
+
+class Circulo extends Forma {
+	constructor(radio) {
+		super()
+		this.radio = radio
+	}
+	calcularArea() {
+		return Math.PI * this.radio ** 2
+	}
+}
+
+class Rectangulo extends Forma {
+	constructor(ancho, alto) {
+		super()
+		this.ancho = ancho
+		this.alto = alto
+	}
+	calcularArea() {
+		return this.ancho * this.alto
+	}
+}
+
+const formas = [new Circulo(10), new Rectangulo(5, 10)]
+formas.forEach((forma) => console.log(forma.calcularArea()))
+// 314.159...
+// 50
+```
+
+## ¿Dónde se aplica la Programación Orientada a Objetos?
+
+La POO es ampliamente utilizada en el desarrollo de software debido a su capacidad para estructurar programas complejos de manera organizada y escalable. Este paradigma resulta especialmente útil en escenarios donde necesitamos modelar conceptos del mundo real, gestionar datos y comportamientos de manera encapsulada o trabajar con jerarquías y relaciones entre objetos.
+
+Se aplica en proyectos como:
+
+- comercios electrónicos: En una tienda en línea, las clases pueden representar productos, usuarios, carritos de compra y órdenes. Esto permite una organización clara y un manejo más sencillo de las relaciones entre estos elementos.
+- Sistemas de gestión empresarial: En aplicaciones como CRM (Customer Relationship Management) o ERP (Enterprise Resource Planning), la POO ayuda a modelar entidades como empleados, clientes, productos y procesos empresariales.
+- Aplicaciones gráficas e interfaces de usuario: La POO se usa para modelar elementos gráficos como botones, cuadros de texto y ventanas, encapsulando sus propiedades y comportamientos.
+- Desarrollo de videojuegos: En los videojuegos, es común utilizar la POO para representar entidades como jugadores, enemigos, armas y objetos interactivos. Cada una de estas entidades puede ser modelada como una clase con atributos y métodos específicos.
+
+## Conclusión
+
+Comprender y aplicar los pilares fundamentales de la POO no solo ayuda a escribir código más organizado y reutilizable, sino que también nos permite abordar problemas complejos de manera más eficiente.
